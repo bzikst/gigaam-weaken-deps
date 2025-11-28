@@ -21,7 +21,7 @@ setup(
         )
     ],
     extras_require={
-        "longform": ["torch==2.8.*", "torchaudio==2.8.*", "pyannote.audio==4.0", "torchcodec==0.7", "numba>=0.62"],
+        "longform": ["pyannote.audio", "torchcodec", "numba"],
         "tests": ["pytest", "pytest-cov", "scipy", "soundfile", "librosa"],
     },
     include_package_data=True,
