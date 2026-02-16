@@ -1,4 +1,3 @@
-import pkg_resources
 from setuptools import find_packages, setup
 
 setup(
@@ -15,10 +14,9 @@ setup(
     packages=find_packages(include=["gigaam"]),
     python_requires=">=3.10",
     install_requires=[
-        str(r)
-        for r in pkg_resources.parse_requirements(
-            open("requirements.txt", "r", encoding="utf-8").read()
-        )
+        line.strip()
+        for line in open("requirements.txt", "r", encoding="utf-8")
+        if line.strip() and not line.startswith("#")
     ],
     extras_require={
         "longform": ["pyannote.audio", "torchcodec", "numba"],
